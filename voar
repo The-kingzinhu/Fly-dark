@@ -148,7 +148,7 @@ nowe = false
 
 game:GetService("StarterGui"):SetCore("SendNotification", { 
 	Title = "FLY GUI DARK";
-	Text = "by .the_k1ng";
+	Text = "by The_kingzinhu";
 	Icon = "rbxthumb://type=Asset&id=11935868660&w=150&h=150"})
 Duration = 15;
 
