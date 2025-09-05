@@ -11,130 +11,191 @@ local closebutton = Instance.new("TextButton")
 local mini = Instance.new("TextButton")
 local mini2 = Instance.new("TextButton")
 
+-- Criar UI Corner para bordas arredondadas
+local UICorner = Instance.new("UICorner")
+
 main.Name = "main"
 main.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 main.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 main.ResetOnSpawn = false
 
 Frame.Parent = main
-Frame.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-Frame.BorderColor3 = Color3.fromRGB(255, 0, 0)
-Frame.Position = UDim2.new(0.100320168, 0, 0.379746825, 0)
-Frame.Size = UDim2.new(0, 191, 0, 58)
-task.spawn(function()
-while true do
-	for hue = 0, 255, 4 do
-		Frame.BorderColor3 = Color3.fromHSV(hue/256, 1, 1)
-		Frame.BackgroundColor3 = Color3.fromHSV(hue/256, .5, .8)
-		wait(0.055)
-	end
-end
-end)
+Frame.BackgroundColor3 = Color3.fromRGB(45, 45, 45) -- Cinza escuro moderno
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.1, 0, 0.3, 0)
+Frame.Size = UDim2.new(0, 300, 0, 200)
+Frame.Active = true
+Frame.Draggable = true
 
+-- Aplicar bordas arredondadas
+UICorner.Parent = Frame
+UICorner.CornerRadius = UDim.new(0, 12)
+
+-- Título da GUI
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(0, 0, 0, 0) -- Transparente
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(0, 15, 0, 10)
+TextLabel.Size = UDim2.new(0, 200, 0, 30)
+TextLabel.Font = Enum.Font.GothamBold
+TextLabel.Text = "FLY GUI v2.0"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 16
+TextLabel.TextWrapped = true
+TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+-- Botão de voar para cima
 up.Name = "up"
 up.Parent = Frame
-up.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-up.Size = UDim2.new(0, 44, 0, 28)
-up.Font = Enum.Font.SourceSans
+up.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+up.BorderSizePixel = 0
+up.Position = UDim2.new(0, 20, 0, 50)
+up.Size = UDim2.new(0, 60, 0, 40)
+up.Font = Enum.Font.GothamBold
 up.Text = "↑"
 up.TextColor3 = Color3.fromRGB(0, 255, 0)
-up.TextSize = 17.000
+up.TextSize = 24
 
+-- Aplicar bordas arredondadas
+local upCorner = Instance.new("UICorner")
+upCorner.Parent = up
+upCorner.CornerRadius = UDim.new(0, 8)
+
+-- Botão de voar para baixo
 down.Name = "down"
 down.Parent = Frame
-down.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-down.Position = UDim2.new(0, 0, 0.491228074, 0)
-down.Size = UDim2.new(0, 44, 0, 28)
-down.Font = Enum.Font.SourceSans
+down.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+down.BorderSizePixel = 0
+down.Position = UDim2.new(0, 20, 0, 100)
+down.Size = UDim2.new(0, 60, 0, 40)
+down.Font = Enum.Font.GothamBold
 down.Text = "↓"
 down.TextColor3 = Color3.fromRGB(255, 0, 0)
-down.TextSize = 17.000
+down.TextSize = 24
 
-onof.Name = "onof"
+-- Aplicar bordas arredondadas
+local downCorner = Instance.new("UICorner")
+downCorner.Parent = down
+downCorner.CornerRadius = UDim.new(0, 8)
+
+-- Botão principal de ativar/desativar voo
 onof.Name = "onof"
 onof.Parent = Frame
-onof.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-onof.Position = UDim2.new(0.702823281, 0, 0.491228074, 0)
-onof.Size = UDim2.new(0, 55.4, 0, 28)
-onof.Font = Enum.Font.SourceSans
+onof.BackgroundColor3 = Color3.fromRGB(0, 150, 255)
+onof.BorderSizePixel = 0
+onof.Position = UDim2.new(0, 100, 0, 50)
+onof.Size = UDim2.new(0, 100, 0, 40)
+onof.Font = Enum.Font.GothamBold
 onof.Text = "FLY"
-onof.TextColor3 = Color3.fromRGB(0, 255, 255)
-onof.TextSize = 14.700
+onof.TextColor3 = Color3.fromRGB(255, 255, 255)
+onof.TextSize = 18
 
-TextLabel.Parent = Frame
-TextLabel.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-TextLabel.Position = UDim2.new(0.469327301, 0, 0, 0)
-TextLabel.Size = UDim2.new(0, 100, 0, 28)
-TextLabel.Font = Enum.Font.SourceSans
-TextLabel.Text = "FLY GUI v1.0"
-TextLabel.TextColor3 = Color3.new(0, 255, 0) 
-TextLabel.TextScaled = true
-TextLabel.TextSize = 13.250
-TextLabel.TextWrapped = true
+-- Aplicar bordas arredondadas
+local onofCorner = Instance.new("UICorner")
+onofCorner.Parent = onof
+onofCorner.CornerRadius = UDim.new(0, 8)
 
+-- Botão de aumentar velocidade
 plus.Name = "plus"
 plus.Parent = Frame
-plus.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-plus.Position = UDim2.new(0.231578946, 0, 0, 0)
-plus.Size = UDim2.new(0, 45, 0, 28)
-plus.Font = Enum.Font.SourceSans
+plus.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+plus.BorderSizePixel = 0
+plus.Position = UDim2.new(0, 220, 0, 50)
+plus.Size = UDim2.new(0, 50, 0, 40)
+plus.Font = Enum.Font.GothamBold
 plus.Text = "+"
 plus.TextColor3 = Color3.fromRGB(0, 255, 0)
-plus.TextScaled = true
-plus.TextSize = 14.000
-plus.TextWrapped = true
+plus.TextSize = 20
 
+-- Aplicar bordas arredondadas
+local plusCorner = Instance.new("UICorner")
+plusCorner.Parent = plus
+plusCorner.CornerRadius = UDim.new(0, 8)
+
+-- Display de velocidade
 speed.Name = "speed"
 speed.Parent = Frame
-speed.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-speed.Position = UDim2.new(0.468421042, 0, 0.491228074, 0)
-speed.Size = UDim2.new(0, 44, 0, 28)
-speed.Font = Enum.Font.SourceSans
+speed.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+speed.BorderSizePixel = 0
+speed.Position = UDim2.new(0, 100, 0, 100)
+speed.Size = UDim2.new(0, 60, 0, 40)
+speed.Font = Enum.Font.GothamBold
 speed.Text = "1"
 speed.TextColor3 = Color3.fromRGB(255, 255, 0)
-speed.TextScaled = true
-speed.TextSize = 14.000
-speed.TextWrapped = true
+speed.TextSize = 18
 
+-- Aplicar bordas arredondadas
+local speedCorner = Instance.new("UICorner")
+speedCorner.Parent = speed
+speedCorner.CornerRadius = UDim.new(0, 8)
+
+-- Botão de diminuir velocidade
 mine.Name = "mine"
 mine.Parent = Frame
-mine.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-mine.Position = UDim2.new(0.231578946, 0, 0.491228074, 0)
-mine.Size = UDim2.new(0, 44, 0, 28)
-mine.Font = Enum.Font.SourceSans
+mine.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+mine.BorderSizePixel = 0
+mine.Position = UDim2.new(0, 220, 0, 100)
+mine.Size = UDim2.new(0, 50, 0, 40)
+mine.Font = Enum.Font.GothamBold
 mine.Text = "—"
 mine.TextColor3 = Color3.fromRGB(255, 0, 0)
-mine.TextScaled = true
-mine.TextSize = 14.000
-mine.TextWrapped = true
+mine.TextSize = 20
 
+-- Aplicar bordas arredondadas
+local mineCorner = Instance.new("UICorner")
+mineCorner.Parent = mine
+mineCorner.CornerRadius = UDim.new(0, 8)
+
+-- Controles de janela no canto superior direito
 closebutton.Name = "Close"
-closebutton.Parent = main.Frame
-closebutton.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
-closebutton.Font = "SourceSans"
-closebutton.Size = UDim2.new(0, 45, 0, 28)
-closebutton.Text = "X"
-closebutton.TextSize = 30
-closebutton.Position =  UDim2.new(0, 0, -1, 27)
+closebutton.Parent = Frame
+closebutton.BackgroundColor3 = Color3.fromRGB(0, 0, 0, 0) -- Transparente
+closebutton.BorderSizePixel = 0
+closebutton.Font = Enum.Font.Gotham
+closebutton.Size = UDim2.new(0, 30, 0, 30)
+closebutton.Text = "✕"
+closebutton.TextColor3 = Color3.fromRGB(255, 255, 255)
+closebutton.TextSize = 16
+closebutton.Position = UDim2.new(1, -35, 0, 5)
+
+-- Aplicar bordas arredondadas aos controles
+local closeCorner = Instance.new("UICorner")
+closeCorner.Parent = closebutton
+closeCorner.CornerRadius = UDim.new(0, 4)
 
 mini.Name = "minimize"
-mini.Parent = main.Frame
-mini.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
-mini.Font = "SourceSans"
-mini.Size = UDim2.new(0, 45, 0, 28)
+mini.Parent = Frame
+mini.BackgroundColor3 = Color3.fromRGB(0, 0, 0, 0) -- Transparente
+mini.BorderSizePixel = 0
+mini.Font = Enum.Font.Gotham
+mini.Size = UDim2.new(0, 30, 0, 30)
 mini.Text = "—"
-mini.TextSize = 40
-mini.Position = UDim2.new(0, 44, -1, 27)
+mini.TextColor3 = Color3.fromRGB(255, 255, 255)
+mini.TextSize = 16
+mini.Position = UDim2.new(1, -70, 0, 5)
+
+-- Aplicar bordas arredondadas aos controles
+local miniCorner = Instance.new("UICorner")
+miniCorner.Parent = mini
+miniCorner.CornerRadius = UDim.new(0, 4)
 
 mini2.Name = "minimize2"
-mini2.Parent = main.Frame
-mini2.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
-mini2.Font = "SourceSans"
-mini2.Size = UDim2.new(0, 45, 0, 28)
-mini2.Text = "+"
-mini2.TextSize = 40
-mini2.Position = UDim2.new(0, 44, -1, 57)
+mini2.Parent = Frame
+mini2.BackgroundColor3 = Color3.fromRGB(0, 0, 0, 0) -- Transparente
+mini2.BorderSizePixel = 0
+mini2.Font = Enum.Font.Gotham
+mini2.Size = UDim2.new(0, 30, 0, 30)
+mini2.Text = "□"
+mini2.TextColor3 = Color3.fromRGB(255, 255, 255)
+mini2.TextSize = 16
+mini2.Position = UDim2.new(1, -105, 0, 5)
 mini2.Visible = false
+
+-- Aplicar bordas arredondadas aos controles
+local mini2Corner = Instance.new("UICorner")
+mini2Corner.Parent = mini2
+mini2Corner.CornerRadius = UDim.new(0, 4)
 
 speeds = 1
 
@@ -146,25 +207,24 @@ local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
 nowe = false
 
 game:GetService("StarterGui"):SetCore("SendNotification", { 
-	Title = "FLY GUI DARK";
-	Text = "by The_king";
+	Title = "FLY GUI v2.0";
+	Text = "Interface Moderna Ativada!";
 	Icon = "rbxthumb://type=Asset&id=11935868660&w=150&h=150"})
 Duration = 15;
 
 game:GetService("StarterGui"):SetCore("SendNotification", { 
-	Title = "GUI OPEN";
-	Text = "Gui Fly ︎︎✅";
+	Title = "GUI ABERTA";
+	Text = "Interface de Voo ✅";
 	Icon = "rbxthumb://type=Asset&id=11935883214&w=150&h=150"})
 Duration = 10;
 
 game:GetService("StarterGui"):SetCore("SendNotification", { 
-	Title = "By the_king";
-	Text = "created by Brasileiro!";
+	Title = "Nova Interface";
+	Text = "Design moderno com bordas arredondadas!";
 	Icon = "rbxthumb://type=Asset&id=11935866652&w=150&h=150"})
 Duration = 30;
 
-Frame.Active = true -- main = gui
-Frame.Draggable = true
+-- Frame já configurado acima como ativo e arrastável
 
 onof.MouseButton1Down:connect(function()
 
@@ -478,8 +538,11 @@ mini.MouseButton1Click:Connect(function()
 	mine.Visible = false
 	mini.Visible = false
 	mini2.Visible = true
-	main.Frame.BackgroundTransparency = 1
-	closebutton.Position =  UDim2.new(0, 0, -1, 57)
+	Frame.BackgroundTransparency = 1
+	TextLabel.Visible = false
+	closebutton.Position = UDim2.new(1, -35, 0, 5)
+	mini2.Position = UDim2.new(1, -70, 0, 5)
+	Frame.Size = UDim2.new(0, 100, 0, 40)
 end)
 
 mini2.MouseButton1Click:Connect(function()
@@ -491,6 +554,9 @@ mini2.MouseButton1Click:Connect(function()
 	mine.Visible = true
 	mini.Visible = true
 	mini2.Visible = false
-	main.Frame.BackgroundTransparency = 0 
-	closebutton.Position =  UDim2.new(0, 0, -1, 27)
+	Frame.BackgroundTransparency = 0
+	TextLabel.Visible = true
+	closebutton.Position = UDim2.new(1, -35, 0, 5)
+	mini.Position = UDim2.new(1, -70, 0, 5)
+	Frame.Size = UDim2.new(0, 300, 0, 200)
 end)
